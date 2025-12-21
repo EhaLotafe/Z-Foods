@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="fr" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />    
+    <!-- SEO : Z Foods Lubumbashi -->
+    <title>Z Foods — Les saveurs de chez nous | Lubumbashi</title>
+    <meta name="description" content="Découvrez l'authenticité de la cuisine congolaise à Lubumbashi avec Z Foods. Commandez les plats savoureux de Maman Jeannine Zialo via WhatsApp : Pondu, Tshaka Madesu et plus." />
+    <meta name="keywords" content="Z Foods, restaurant Lubumbashi, cuisine congolaise, Pondu, Tshaka Madesu, Maman Jeannine, livraison repas Lubumbashi" />
+    <meta name="author" content="Z Foods - Eha Lotafe" />
+
+    <!-- Meta Tags pour réseaux sociaux (Open Graph) -->
+    <meta property="og:title" content="Z Foods — Les saveurs de chez nous" />
+    <meta property="og:description" content="Le meilleur de la cuisine locale à Lubumbashi. Livraison express de 12h à 15h." />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="/assets/og-image.jpg" />
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              zDarkGreen: '#1F5F43',
+              zOrange: '#E67E22',
+              zBeige: '#F5F1E8',
+              zBrown: '#4A2E1B',
+            },
+            fontFamily: {
+              poppins: ['Poppins', 'sans-serif'],
+              roboto: ['Roboto', 'sans-serif'],
+            }
+          }
+        }
+      }
+    </script>
+
+    <!-- Google Fonts : Poppins (Titres) & Roboto (Texte) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700;800&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+
+    <style>
+      /* Application du Design System Global */
+      body {
+        font-family: 'Roboto', sans-serif;
+        background-color: #F5F1E8; /* Beige de la spec */
+        color: #4A2E1B; /* Marron de la spec */
+        margin: 0;
+        padding: 0;
+      }
+      
+      h1, h2, h3, h4, .font-poppins {
+        font-family: 'Poppins', sans-serif;
+        font-weight: 700;
+      }
+
+      /* Scrollbar personnalisée aux couleurs de Z Foods */
+      ::-webkit-scrollbar {
+        width: 10px;
+      }
+      ::-webkit-scrollbar-track {
+        background: #F5F1E8;
+      }
+      ::-webkit-scrollbar-thumb {
+        background: #1F5F43;
+        border-radius: 5px;
+      }
+      ::-webkit-scrollbar-thumb:hover {
+        background: #E67E22;
+      }
+    </style>
+
+    <script type="importmap">
+    {
+      "imports": {
+        "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.0/",
+        "react/": "https://aistudiocdn.com/react@^19.2.0/",
+        "react": "https://aistudiocdn.com/react@^19.2.0"
+      }
+    }
+    </script>
+
+    <link rel="stylesheet" href="/index.css">
+  </head>
+  <body>
+    <div id="root"></div>
+    <!-- Point d'entrée de l'application React -->
+    <script type="module" src="/index.tsx"></script>
+  </body>
+</html>

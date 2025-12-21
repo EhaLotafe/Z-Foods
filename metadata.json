@@ -1,0 +1,62 @@
+{
+  "name": "Z Foods — Les saveurs de chez nous",
+  "restaurantId": "ZFOODS_LBM_001",
+  "developedBy": "Eha Lotafe — Overcome Solution",
+  "description": "Cuisine congolaise authentique à Lubumbashi par Maman Jeannine Zialo. Plats faits maison, service traiteur et formations culinaires.",
+  "contact": {
+    "phone": "+243 817 317 189",
+    "whatsapp": "243817317189",
+    "traiteur": "+243 817 317 189",
+    "formation": "+243 993 033 321",
+    "address": "Avenue Congo Motors n°11",
+    "reference": "Arrêt Tshangalele, Carrefour",
+    "hours": {
+      "order_window": "08h00 - 12h00",
+      "delivery_window": "12h00 - 15h00"
+    }
+  },
+  "menu": [
+    {
+      "id": "weekly",
+      "name": "Menu Hebdomadaire",
+      "description": "Composez votre plat (Base + Accompagnement + Viande)",
+      "items": [
+        {
+          "itemId": "M1",
+          "name": "Pondu ou Matembele",
+          "description": "Accompagné de Thompson, Poulet (Grillé/Brûlé) ou Viande. Piment et pommes de terre selon vos envies.",
+          "price": 10000,
+          "days": ["Lundi", "Jeudi"],
+          "imageUrl": "/assets/pondu-thompson.jpg",
+          "isFeatured": true
+        },
+        {
+          "itemId": "M2",
+          "name": "Tshaka Madesu",
+          "description": "Le mélange onctueux feuilles de manioc et haricots. Choix de riz ou foufou et votre protéine préférée.",
+          "price": 10000,
+          "days": ["Mardi", "Vendredi"],
+          "imageUrl": "/assets/tshaka-madesu.jpg",
+          "isFeatured": true
+        },
+        {
+          "itemId": "M3",
+          "name": "Haricots(Madesu) ou Pondu",
+          "description": "Le duo classique du milieu de semaine. Combinez avec la viande disponible du jour.",
+          "price": 10000,
+          "days": ["Mercredi"],
+          "imageUrl": "/assets/haricots-pondu.jpg",
+          "isFeatured": true
+        }
+      ]
+    }
+  ],
+  "specials": [
+    "Pommes de terre (sautées, frites, salade)",
+    "Fumbwa",
+    "Mikebuka",
+    "Limbondo",
+    "Liboke",
+    "Banane plantain"
+  ]
+}

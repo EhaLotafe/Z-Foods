@@ -1,0 +1,100 @@
+/* --- Z FOODS : RESPONSIVE GLOBAL OPTIMIZATION --- */
+
+/* 1. Sécurité anti-débordement (Crucial pour mobile) */
+html, body {
+    max-width: 100%;
+    overflow-x: hidden;
+    position: relative;
+    scroll-behavior: smooth;
+}
+
+/* 2. Conteneurs adaptatifs */
+.container {
+    width: 100% !important;
+    padding-left: 1rem !important;
+    padding-right: 1rem !important;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+@media (min-width: 768px) {
+    .container {
+        padding-left: 2rem !important;
+        padding-right: 2rem !important;
+    }
+}
+
+/* 3. Typographie Fluide (S'adapte à la taille de l'écran) */
+h1 {
+    font-size: clamp(2rem, 8vw, 4.5rem) !important;
+    line-height: 1.1 !important;
+}
+
+h2 {
+    font-size: clamp(1.75rem, 5vw, 3rem) !important;
+}
+
+h3 {
+    font-size: clamp(1.5rem, 4vw, 2.25rem) !important;
+}
+
+/* 4. Gestion des Sections (Moins d'espace sur mobile) */
+section {
+    padding-top: 3rem !important;
+    padding-bottom: 3rem !important;
+}
+
+@media (min-width: 1024px) {
+    section {
+        padding-top: 6rem !important;
+        padding-bottom: 6rem !important;
+    }
+}
+
+/* 5. Ajustements des Grilles (Grid) */
+/* Force 1 colonne sur mobile, 2 sur tablette, 3+ sur desktop */
+.responsive-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+}
+
+@media (min-width: 640px) {
+    .responsive-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (min-width: 1024px) {
+    .responsive-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+/* 6. Optimisation des Images */
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* 7. Boutons tactiles (Plus faciles à cliquer sur téléphone) */
+button, a.inline-block, a.flex {
+    min-height: 44px; /* Standard Apple/Google pour le tactile */
+}
+
+/* 8. Fix pour les menus mobiles qui dépassent */
+.mobile-menu-overlay {
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+}
+
+/* 9. Hack pour le Hero sur les écrans très petits (iPhone SE, etc.) */
+@media (max-width: 380px) {
+    .font-poppins {
+        letter-spacing: -1px;
+    }
+    .flex-col-small {
+        flex-direction: column !important;
+    }
+}
