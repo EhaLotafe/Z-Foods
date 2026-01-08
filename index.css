@@ -1,100 +1,125 @@
-/* --- Z FOODS : RESPONSIVE GLOBAL OPTIMIZATION --- */
+/* --- Z FOODS : ULTIMATE RESPONSIVE & UX OPTIMIZATION --- */
 
-/* 1. Sécurité anti-débordement (Crucial pour mobile) */
-html, body {
-    max-width: 100%;
-    overflow-x: hidden;
-    position: relative;
-    scroll-behavior: smooth;
+/* 1. Base & Sécurité anti-débordement */
+:root {
+  --z-green: #1F5F43;
+  --z-orange: #E67E22;
+  --z-beige: #F5F1E8;
+  --z-brown: #4A2E1B;
 }
 
-/* 2. Conteneurs adaptatifs */
+html, body {
+    max-width: 100%;
+    overflow-x: hidden; /* Empêche le site de bouger de gauche à droite sur mobile */
+    position: relative;
+    padding-top: 0;
+    scroll-behavior: smooth;
+    background-color: var(--z-beige);
+    color: var(--z-brown);
+}
+
+/* 2. Personnalisation de la sélection (Le petit détail pro) */
+::selection {
+    background-color: var(--z-orange);
+    color: white;
+}
+
+/* 3. Scrollbar stylisée (Aux couleurs Z Foods) */
+::-webkit-scrollbar {
+    width: 8px;
+}
+::-webkit-scrollbar-track {
+    background: var(--z-beige);
+}
+::-webkit-scrollbar-thumb {
+    background: var(--z-green);
+    border-radius: 10px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: var(--z-orange);
+}
+
+/* 4. Conteneurs adaptatifs ultra-fluides */
 .container {
     width: 100% !important;
-    padding-left: 1rem !important;
-    padding-right: 1rem !important;
+    padding-left: 1.25rem !important;
+    padding-right: 1.25rem !important;
     margin-left: auto;
     margin-right: auto;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 1024px) {
     .container {
-        padding-left: 2rem !important;
-        padding-right: 2rem !important;
+        padding-left: 4rem !important;
+        padding-right: 4rem !important;
     }
 }
 
-/* 3. Typographie Fluide (S'adapte à la taille de l'écran) */
+/* 5. Typographie Fluide (Le secret du responsive sans media queries) */
 h1 {
-    font-size: clamp(2rem, 8vw, 4.5rem) !important;
-    line-height: 1.1 !important;
+    font-size: clamp(2.25rem, 10vw, 5rem) !important; /* S'adapte entre 36px et 80px */
+    line-height: 1.05 !important;
+    letter-spacing: -0.02em;
 }
 
 h2 {
-    font-size: clamp(1.75rem, 5vw, 3rem) !important;
+    font-size: clamp(1.8rem, 6vw, 3.5rem) !important;
+    line-height: 1.1 !important;
 }
 
-h3 {
-    font-size: clamp(1.5rem, 4vw, 2.25rem) !important;
+p {
+    font-size: clamp(0.95rem, 2vw, 1.125rem) !important;
 }
 
-/* 4. Gestion des Sections (Moins d'espace sur mobile) */
+/* 6. Gestion intelligente des Sections */
 section {
-    padding-top: 3rem !important;
-    padding-bottom: 3rem !important;
+    padding-top: 4rem !important;
+    padding-bottom: 4rem !important;
+    scroll-margin-top: 4rem; 
 }
 
 @media (min-width: 1024px) {
     section {
-        padding-top: 6rem !important;
-        padding-bottom: 6rem !important;
+        padding-top: 8rem !important;
+        padding-bottom: 8rem !important;
     }
 }
 
-/* 5. Ajustements des Grilles (Grid) */
-/* Force 1 colonne sur mobile, 2 sur tablette, 3+ sur desktop */
-.responsive-grid {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 1.5rem;
+/* 7. Optimisation Tactile & Boutons */
+button, a {
+    touch-action: manipulation; /* Optimise le délai de clic sur mobile */
+    min-height: 44px; /* Taille minimale pour le pouce */
 }
 
-@media (min-width: 640px) {
-    .responsive-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
+/* Empêche les éléments AOS de casser le layout mobile */
+[data-aos] {
+    pointer-events: none;
+}
+.aos-animate {
+    pointer-events: auto;
 }
 
-@media (min-width: 1024px) {
-    .responsive-grid {
-        grid-template-columns: repeat(3, 1fr);
-    }
+/* 8. Animations fluides */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
-/* 6. Optimisation des Images */
-img {
-    max-width: 100%;
-    height: auto;
-    display: block;
+.animate-fadeIn {
+  animation: fadeIn 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
-/* 7. Boutons tactiles (Plus faciles à cliquer sur téléphone) */
-button, a.inline-block, a.flex {
-    min-height: 44px; /* Standard Apple/Google pour le tactile */
+/* 9. Utilitaires spécifiques */
+.no-scrollbar::-webkit-scrollbar {
+    display: none;
+}
+.no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
 }
 
-/* 8. Fix pour les menus mobiles qui dépassent */
-.mobile-menu-overlay {
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
-}
-
-/* 9. Hack pour le Hero sur les écrans très petits (iPhone SE, etc.) */
-@media (max-width: 380px) {
-    .font-poppins {
-        letter-spacing: -1px;
-    }
-    .flex-col-small {
-        flex-direction: column !important;
-    }
+/* Hack pour les écrans ultra-fins (iPhone SE / Fold) */
+@media (max-width: 350px) {
+    h1 { font-size: 1.75rem !important; }
+    .px-4 { padding-left: 0.75rem !important; padding-right: 0.75rem !important; }
 }

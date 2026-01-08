@@ -25,8 +25,8 @@ export type MenuItem = {
   name: string;
   description: string;
   price: number;
-  imageUrl: string;
-  days: string[]; // ex: ["Lundi", "Jeudi"]
+  images: string[]; // <-- Changé ici pour accepter plusieurs images
+  days: string[];
   isFeatured: boolean;
 };
 

@@ -15,48 +15,66 @@
       "delivery_window": "12h00 - 15h00"
     }
   },
+  "social": [
+    { "name": "WhatsApp", "url": "https://wa.me/243817317189" },
+    { "name": "Facebook", "url": "#" }
+  ],
   "menu": [
     {
       "id": "weekly",
-      "name": "Menu Hebdomadaire",
-      "description": "Composez votre plat (Base + Accompagnement + Viande)",
       "items": [
         {
-          "itemId": "M1",
-          "name": "Pondu ou Matembele",
-          "description": "Accompagné de Thompson, Poulet (Grillé/Brûlé) ou Viande. Piment et pommes de terre selon vos envies.",
-          "price": 10000,
+          "itemId": "m1",
+          "name": "Lundi & Jeudi : Pondu, Matembele & Ndunda",
           "days": ["Lundi", "Jeudi"],
-          "imageUrl": "/assets/pondu-thompson.jpg",
+          "description": "Festival de légumes verts : Pondu, Ndunda ou Matembele. Accompagnés de Riz, Foufou ou Pommes sautées avec Thompson, Poulet ou Viande.",
+          "price": 10000,
+          "images": [
+            "/assets/pondu.jpg",
+            "/assets/pondu-fufu-thompson.jpg",
+            "/assets/legumes%20verts.jpg",
+            "/assets/ndunda.jpg",
+            "/assets/thompson.jpg"
+          ],
           "isFeatured": true
         },
         {
-          "itemId": "M2",
-          "name": "Tshaka Madesu",
-          "description": "Le mélange onctueux feuilles de manioc et haricots. Choix de riz ou foufou et votre protéine préférée.",
-          "price": 10000,
+          "itemId": "m2",
+          "name": "Mardi & Vendredi : Tshaka Madesu & Grillades",
           "days": ["Mardi", "Vendredi"],
-          "imageUrl": "/assets/tshaka-madesu.jpg",
+          "description": "L'onctuosité du Tshaka Madesu traditionnel. Accompagnement au choix (Riz, Foufou, Pommes) avec Thompson ou Poulet.",
+          "price": 10000,
+          "images": [
+            "/assets/plat-tshaka-madesu.jpg",
+            "/assets/tshaka-madesu.jpg",
+            "/assets/tshaka_madesu.jpg",
+            "/assets/thompson.jpg"
+          ],
           "isFeatured": true
         },
         {
-          "itemId": "M3",
-          "name": "Haricots(Madesu) ou Pondu",
-          "description": "Le duo classique du milieu de semaine. Combinez avec la viande disponible du jour.",
+          "itemId": "m3",
+          "name": "Mercredi : Duo Madesu & Pondu",
+          "description": "Le mariage parfait du Madesu (haricots) et du Pondu. Accompagnement Riz, Foufou ou Pommes sautées.",
           "price": 10000,
-          "days": ["Mercredi"],
-          "imageUrl": "/assets/haricots-pondu.jpg",
+          "images": [
+            "/assets/riz-madesu.jpg",
+            "/assets/madesu.jpg",
+            "/assets/pondu.jpg"
+          ],
           "isFeatured": true
         }
       ]
     }
   ],
   "specials": [
-    "Pommes de terre (sautées, frites, salade)",
+    "Pommes de terre (sautées, frites)",
+    "salade",
     "Fumbwa",
     "Mikebuka",
     "Limbondo",
     "Liboke",
-    "Banane plantain"
+    "Banane plantain",
+    "Mbinzo"
   ]
 }

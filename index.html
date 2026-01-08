@@ -2,28 +2,29 @@
 <html lang="fr" class="scroll-smooth">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/png" href="/assets/logo-zfoods.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />    
-    <!-- SEO : Z Foods Lubumbashi -->
+    
+    <!-- SEO & PARTAGE SOCIAL (WhatsApp/FB) -->
     <title>Z Foods — Les saveurs de chez nous | Lubumbashi</title>
-    <meta name="description" content="Découvrez l'authenticité de la cuisine congolaise à Lubumbashi avec Z Foods. Commandez les plats savoureux de Maman Jeannine Zialo via WhatsApp : Pondu, Tshaka Madesu et plus." />
-    <meta name="keywords" content="Z Foods, restaurant Lubumbashi, cuisine congolaise, Pondu, Tshaka Madesu, Maman Jeannine, livraison repas Lubumbashi" />
-    <meta name="author" content="Z Foods - Eha Lotafe" />
-
-    <!-- Meta Tags pour réseaux sociaux (Open Graph) -->
+    <meta name="description" content="Authentique cuisine congolaise à Lubumbashi par Maman Jeannine Zialo. Commandez votre repas de midi avant 12h00 via WhatsApp." />
     <meta property="og:title" content="Z Foods — Les saveurs de chez nous" />
-    <meta property="og:description" content="Le meilleur de la cuisine locale à Lubumbashi. Livraison express de 12h à 15h." />
-    <meta property="og:type" content="website" />
+    <meta property="og:description" content="Le meilleur du Pondu, Tshaka Madesu et grillades à Lubumbashi. Livraison express de 12h à 15h." />
     <meta property="og:image" content="/assets/og-image.jpg" />
+    <meta property="og:type" content="website" />
+    <meta name="author" content="Eha Lotafe - Overcome Solution" />
 
-    <!-- Tailwind CSS -->
+    <!-- AOS ANIMATIONS CSS -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <!-- TAILWIND CONFIG -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
       tailwind.config = {
         theme: {
           extend: {
             colors: {
-              zDarkGreen: '#1F5F43',
+              zGreen: '#1F5F43',
               zOrange: '#E67E22',
               zBeige: '#F5F1E8',
               zBrown: '#4A2E1B',
@@ -37,57 +38,63 @@
       }
     </script>
 
-    <!-- Google Fonts : Poppins (Titres) & Roboto (Texte) -->
+    <!-- GOOGLE FONTS -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700;800&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700;800;900&family=Roboto:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
 
     <style>
-      /* Application du Design System Global */
-      body {
-        font-family: 'Roboto', sans-serif;
-        background-color: #F5F1E8; /* Beige de la spec */
-        color: #4A2E1B; /* Marron de la spec */
-        margin: 0;
-        padding: 0;
+      /* --- OPTIMISATION GLOBALE & RESPONSIVE --- */
+      html, body {
+        max-width: 100%;
+        overflow-x: hidden;
+        background-color: #F5F1E8;
+        color: #4A2E1B;
       }
       
-      h1, h2, h3, h4, .font-poppins {
-        font-family: 'Poppins', sans-serif;
-        font-weight: 700;
-      }
+      .font-poppins { font-family: 'Poppins', sans-serif; }
 
-      /* Scrollbar personnalisée aux couleurs de Z Foods */
-      ::-webkit-scrollbar {
-        width: 10px;
+      /* Typographie Fluide (S'adapte à tous les écrans) */
+      h1 { font-size: clamp(2.2rem, 8vw, 5rem) !important; }
+      h2 { font-size: clamp(1.8rem, 5vw, 3.5rem) !important; }
+
+      /* Scrollbar Custom Z Foods */
+      ::-webkit-scrollbar { width: 8px; }
+      ::-webkit-scrollbar-track { background: #F5F1E8; }
+      ::-webkit-scrollbar-thumb { background: #1F5F43; border-radius: 10px; }
+      ::-webkit-scrollbar-thumb:hover { background: #E67E22; }
+
+      /* Animation de chargement */
+      @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(10px); }
+        to { opacity: 1; transform: translateY(0); }
       }
-      ::-webkit-scrollbar-track {
-        background: #F5F1E8;
-      }
-      ::-webkit-scrollbar-thumb {
-        background: #1F5F43;
-        border-radius: 5px;
-      }
-      ::-webkit-scrollbar-thumb:hover {
-        background: #E67E22;
-      }
+      .animate-fadeIn { animation: fadeIn 0.6s ease-out forwards; }
+      
+      /* Utilitaires */
+      .no-scrollbar::-webkit-scrollbar { display: none; }
+      .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
     </style>
-
-    <script type="importmap">
-    {
-      "imports": {
-        "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.0/",
-        "react/": "https://aistudiocdn.com/react@^19.2.0/",
-        "react": "https://aistudiocdn.com/react@^19.2.0"
-      }
-    }
-    </script>
-
-    <link rel="stylesheet" href="/index.css">
   </head>
   <body>
     <div id="root"></div>
-    <!-- Point d'entrée de l'application React -->
+
+    <!-- Scripts React & App -->
     <script type="module" src="/index.tsx"></script>
+
+    <!-- AOS ANIMATIONS JS -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+      // Initialisation AOS après le chargement du DOM
+      window.addEventListener('load', () => {
+        setTimeout(() => {
+          AOS.init({
+            duration: 1000,
+            once: true,
+            offset: 100
+          });
+        }, 100);
+      });
+    </script>
   </body>
 </html>
