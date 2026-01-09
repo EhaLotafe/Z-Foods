@@ -2,6 +2,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import App from './App';
+import './index.css';
 
 // On récupère l'élément racine défini dans index.html
 const rootElement = document.getElementById('root');
