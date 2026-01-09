@@ -2,23 +2,21 @@
 <html lang="fr" class="scroll-smooth">
   <head>
     <meta charset="UTF-8" />
-    <!-- Favicon -->
     <link rel="icon" type="image/png" href="/assets/logo-zfoods.png" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />    
     
-    <!-- SEO & PARTAGE SOCIAL (WhatsApp/FB) -->
+    <!-- FIX : Viewport standard pour l'accessibilité (Suppression de user-scalable) -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />    
+    
+    <!-- SEO & PARTAGE SOCIAL -->
     <title>Z Foods — Les saveurs de chez nous | Lubumbashi</title>
     <meta name="description" content="Authentique cuisine congolaise à Lubumbashi par Maman Jeannine Zialo. Commandez votre repas de midi avant 12h00 via WhatsApp." />
     <meta property="og:title" content="Z Foods — Les saveurs de chez nous" />
-    <meta property="og:description" content="Le meilleur du Pondu, Tshaka Madesu et grillades à Lubumbashi. Livraison express de 12h à 15h." />
+    <meta property="og:description" content="Le meilleur du Pondu, Tshaka Madesu et grillades à Lubumbashi." />
     <meta property="og:image" content="/assets/og-image.jpg" />
-    <meta property="og:type" content="website" />
     <meta name="author" content="Eha Lotafe - Overcome Solution" />
 
-    <!-- AOS ANIMATIONS CSS -->
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
-    <!-- TAILWIND CONFIG -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
       tailwind.config = {
@@ -34,112 +32,65 @@
               poppins: ['Poppins', 'sans-serif'],
               roboto: ['Roboto', 'sans-serif'],
             },
-            screens: {
-              'xs': '400px',
-            }
+            screens: { 'xs': '400px' }
           }
         }
       }
     </script>
 
-    <!-- GOOGLE FONTS -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700;800;900&family=Roboto:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
 
     <style>
-      /* --- CORRECTIFS DE RESPONSIVITÉ GLOBALE --- */
-      
-      /* 1. Empêcher le défilement horizontal (Le bug n°1 sur mobile) */
+      /* --- CORRECTIFS DE RESPONSIVITÉ --- */
       html, body {
         max-width: 100%;
         overflow-x: hidden;
-        margin: 0;
-        padding: 0;
         background-color: #F5F1E8;
         color: #4A2E1B;
         width: 100%;
       }
 
-      /* 2. Fixer les conteneurs Tailwind sur mobile */
       .container {
         width: 100% !important;
-        max-width: 1280px !important;
         padding-left: 1rem !important;
         padding-right: 1rem !important;
         margin-left: auto;
         margin-right: auto;
       }
 
-      @media (min-width: 768px) {
-        .container {
-          padding-left: 2rem !important;
-          padding-right: 2rem !important;
-        }
-      }
+      h1 { font-size: clamp(2rem, 8vw, 4.5rem) !important; }
+      h2 { font-size: clamp(1.5rem, 6vw, 3rem) !important; }
 
-      /* 3. Typographie Adaptative (Fluide) */
-      .font-poppins { font-family: 'Poppins', sans-serif; }
-      
-      h1 { font-size: clamp(2rem, 8vw, 4.5rem) !important; line-height: 1.1 !important; }
-      h2 { font-size: clamp(1.5rem, 6vw, 3rem) !important; line-height: 1.2 !important; }
-      h3 { font-size: clamp(1.25rem, 4vw, 2rem) !important; }
-
-      /* 4. Fix pour le Header Fixe (Empêcher de cacher les titres) */
-      section {
-        scroll-margin-top: 5rem; /* Ajuste la position lors du clic sur le menu */
-      }
-
-      /* 5. Scrollbar Personnalisée */
+      /* Scrollbar Custom (WebKit pour Chrome/Safari) */
       ::-webkit-scrollbar { width: 6px; }
       ::-webkit-scrollbar-track { background: #F5F1E8; }
       ::-webkit-scrollbar-thumb { background: #1F5F43; border-radius: 10px; }
       ::-webkit-scrollbar-thumb:hover { background: #E67E22; }
 
-      /* 6. Animations et Utilitaires */
-      @keyframes fadeIn {
-        from { opacity: 0; transform: translateY(10px); }
-        to { opacity: 1; transform: translateY(0); }
-      }
-      .animate-fadeIn { animation: fadeIn 0.6s ease-out forwards; }
-      
+      /* FIX : Suppression de scrollbar-width qui causait l'erreur de compatibilité */
       .no-scrollbar::-webkit-scrollbar { display: none; }
-      .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
-
-      /* Assurer que les images ne débordent jamais */
-      img {
-        max-width: 100%;
-        height: auto;
+      .no-scrollbar {
+        -ms-overflow-style: none; /* Pour Internet Explorer/Edge */
+        /* scrollbar-width: none;  <-- Supprimé car non compatible partout */
       }
 
-      /* Désactiver les animations AOS qui causent des débordements sur très petits écrans */
+      img { max-width: 100%; height: auto; }
+
       @media (max-width: 400px) {
-        [data-aos] {
-          transform: none !important;
-          opacity: 1 !important;
-          transition: none !important;
-        }
+        [data-aos] { transform: none !important; opacity: 1 !important; transition: none !important; }
       }
     </style>
   </head>
   <body>
     <div id="root"></div>
-
-    <!-- Script principal React -->
     <script type="module" src="/index.tsx"></script>
-
-    <!-- AOS ANIMATIONS JS -->
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
-      // Initialisation optimisée
       window.addEventListener('load', () => {
         setTimeout(() => {
-          AOS.init({
-            duration: 800,
-            once: true,
-            offset: 50,
-            disable: 'mobile' // Optionnel: désactive si trop lourd sur vieux téléphones
-          });
+          AOS.init({ duration: 800, once: true, offset: 50 });
         }, 200);
       });
     </script>
